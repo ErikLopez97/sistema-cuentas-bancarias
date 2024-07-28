@@ -1,0 +1,35 @@
+{
+    "name": "sistema-cuentas-bancarias",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.mjs",
+    "scripts": {
+        "start": "node src/index.mjs",
+        "test": "NODE_ENV=test mocha --timeout 10000"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ErikLopez97/sistema-cuentas-bancarias.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ErikLopez97/sistema-cuentas-bancarias/issues"
+    },
+    "homepage": "https://github.com/ErikLopez97/sistema-cuentas-bancarias#readme",
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.19.2",
+        "express-validator": "^7.1.0",
+        "mongodb": "^6.8.0",
+        "mongoose": "^8.5.1",
+        "swagger-jsdoc": "^6.2.8",
+        "swagger-ui-express": "^5.0.1"
+    },
+    "devDependencies": {
+        "chai": "^5.1.1",
+        "mocha": "^10.7.0",
+        "supertest": "^7.0.0"
+    }
+}
