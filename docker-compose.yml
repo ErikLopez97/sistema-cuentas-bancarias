@@ -1,18 +1,18 @@
-version: '3.8'
-
+version: '3'
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "5002:5001"
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - MONGO_URI=mongodb://mongo:27017/sistema-cuentas
     depends_on:
       - mongo
-
   mongo:
-    image: mongo:5.0
+    image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
