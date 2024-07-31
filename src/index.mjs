@@ -3,6 +3,7 @@ import connectDB from './config/db.mjs';
 import dotenv from 'dotenv';
 import accountRoutes from './routes/accountRoutes.mjs';
 import setupSwagger from './config/swagger.mjs';
+import authRoutes from './routes/authRoutes.mjs';
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.get('/', (req, res) => res.send('API Running'));
 
 // Define Routes
 app.use('/api', accountRoutes);
+app.use('/api', authRoutes);
 
 // Setup Swagger
 setupSwagger(app);

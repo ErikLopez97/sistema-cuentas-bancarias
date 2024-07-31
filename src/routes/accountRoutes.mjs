@@ -1,5 +1,6 @@
-import { Router } from 'express';
+import express from 'express';
 import { createAccount, getAccount, updateAccount, deleteAccount } from '../controllers/accountController.mjs';
+import auth from '../middlewares/authMiddleware.mjs';
 
 const router = Router();
 
@@ -51,14 +52,10 @@ const router = Router();
  *     responses:
  *       201:
  *         description: The account was successfully created
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Account'
  *       500:
  *         description: Some server error
  */
-router.post('/accounts', createAccount);
+router.post('/accounts', auth, createAccount);
 
 /**
  * @swagger
@@ -76,16 +73,14 @@ router.post('/accounts', createAccount);
  *     responses:
  *       200:
  *         description: The account description by id
- *         content:
+ *         contents:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Account'
  *       404:
  *         description: The account was not found
- *       500:
- *         description: Some server error
  */
-router.get('/accounts/:id', getAccount);
+router.get('/accounts/:id', auth, getAccount);
 
 /**
  * @swagger
@@ -116,9 +111,9 @@ router.get('/accounts/:id', getAccount);
  *       404:
  *         description: The account was not found
  *       500:
- *         description: Some server error
+ *         description: Some error happened
  */
-router.put('/accounts/:id', updateAccount);
+router.put('/accounts/:id', auth, updateAccount);
 
 /**
  * @swagger
@@ -138,9 +133,7 @@ router.put('/accounts/:id', updateAccount);
  *         description: The account was deleted
  *       404:
  *         description: The account was not found
- *       500:
- *         description: Some server error
  */
-router.delete('/accounts/:id', deleteAccount);
+router.delete('/accounts/:id', auth, deleteAccount);
 
 export default router;
