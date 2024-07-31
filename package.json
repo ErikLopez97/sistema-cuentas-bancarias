@@ -5,7 +5,8 @@
     "main": "src/index.mjs",
     "scripts": {
         "start": "node src/index.mjs",
-        "test": "NODE_ENV=test mocha --timeout 10000"
+        "test": "NODE_ENV=test mocha --timeout 10000",
+        "lint": "eslint 'src/**'"
     },
     "repository": {
         "type": "git",
@@ -30,7 +31,10 @@
         "swagger-ui-express": "^5.0.1"
     },
     "devDependencies": {
+        "@eslint/js": "^9.8.0",
         "chai": "^5.1.1",
+        "eslint": "^9.8.0",
+        "globals": "^15.8.0",
         "mocha": "^10.7.0",
         "supertest": "^7.0.0"
     }
